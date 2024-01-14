@@ -48,6 +48,7 @@ const init = ()   =>  {
             generateShape = new Triangle(answers);
         };
     })
+    .then((content) =>  writeFile(path, content))
     //if succefully generate a file, log a success message
     .then(()    =>  console.log("Generated logo.svg"))
     //if detect an error, log the error.
