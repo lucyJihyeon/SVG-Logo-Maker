@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const { writeFile } = require("fs").promises;
 //inport path
 const { join } = require('path');
+const Triangle = require('./lib/triangle.js');
 
 //Functino to prompt the user to enter what type of logo they want by using inquirer
 const promptUser = () => {
@@ -34,19 +35,22 @@ const promptUser = () => {
 
 //Initial functino to call promptUser function 
 const init = ()   =>  {
-    const path = join(__dirname, '..', 'examples', 'logo.svg');
+    const path = join(__dirname, '..','SVG-Logo-Maker', 'examples', 'logo.svg');
     let generateShape ='';
     promptUser()
     //take the resolved promise and stored it in answers to pass to a certain function
-    .then((answers) => {
-        const shape = `${answers.shape}`
-        if (shape == 'circle') {
+    .then(({text, textColor, shape, shapeColor}) => {
+        const shapeSVG = shape.toLowerCase();
+        if (shapeSVG === 'circle') {
             generateShape = new Circle(answers);
-        }else if (shape == 'square')    {
+        }else if (shapeSVG === 'square')    {
             generateShape = new Square(answers);
-        }else {
-            generateShape = new Triangle(answers);
-        };
+        }else if (shapeSVG === 'triangle'){
+            generateShape = new Triangle(text, textColor, shapeColor); 
+        } else {
+            throw new Error("Invalid shape selected.")
+        }
+        return generateShape.renderSVG();
     })
     .then((content) =>  writeFile(path, content))
     //if succefully generate a file, log a success message
