@@ -34,17 +34,18 @@ const promptUser = () => {
 
 //Initial functino to call promptUser function 
 const init = ()   =>  {
-    let path = join(__dirname, '..', 'examples', 'logo.svg');
+    const path = join(__dirname, '..', 'examples', 'logo.svg');
+    let generateShape ='';
     promptUser()
     //take the resolved promise and stored it in answers to pass to a certain function
     .then((answers) => {
         const shape = `${answers.shape}`
         if (shape == 'circle') {
-            const circle = new Circle(answers);
+            generateShape = new Circle(answers);
         }else if (shape == 'square')    {
-            const square = new Square(answers);
+            generateShape = new Square(answers);
         }else {
-            const triangle = new Triangle(asnwers);
+            generateShape = new Triangle(answers);
         };
     })
     //if succefully generate a file, log a success message
