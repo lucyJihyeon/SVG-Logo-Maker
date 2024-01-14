@@ -6,6 +6,7 @@ const { writeFile } = require("fs").promises;
 const { join } = require('path');
 const Triangle = require('./lib/triangle.js');
 const Circle = require('./lib/circle.js');
+const Square = require('./lib/shapes.js');
 
 //Functino to prompt the user to enter what type of logo they want by using inquirer
 const promptUser = () => {
