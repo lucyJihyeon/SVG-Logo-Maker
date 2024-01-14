@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const { writeFile } = require("fs").promises;
 //inport path
 const { join } = require('path');
+const Triangle = require('./lib/triangle.js');
 
 //Functino to prompt the user to enter what type of logo they want by using inquirer
 const promptUser = () => {
@@ -34,20 +35,28 @@ const promptUser = () => {
 
 //Initial functino to call promptUser function 
 const init = ()   =>  {
-    const path = join(__dirname, '..', 'examples', 'logo.svg');
+    //pathway of the file where the logo.svg will be generated.
+    const path = join(__dirname, '..','SVG-Logo-Maker', 'examples', 'logo.svg');
     let generateShape ='';
+    //call the promptUser function 
     promptUser()
     //take the resolved promise and stored it in answers to pass to a certain function
-    .then((answers) => {
-        const shape = `${answers.shape}`
-        if (shape == 'circle') {
-            generateShape = new Circle(answers);
-        }else if (shape == 'square')    {
-            generateShape = new Square(answers);
-        }else {
-            generateShape = new Triangle(answers);
-        };
+    .then(({text, textColor, shape, shapeColor}) => {
+        //take the user's answer in 'shape' and create a corresponding instance based on the shapes.
+        const shapeSVG = shape
+        if (shapeSVG === 'circle') {
+            generateShape = new Circle(text, textColor, shapeColor);
+        }else if (shapeSVG === 'square')    {
+            generateShape = new Square(text, textColor, shapeColor);
+        }else if (shapeSVG === 'triangle'){
+            generateShape = new Triangle(text, textColor, shapeColor); 
+        } else {
+            throw new Error("Invalid shape selected.")
+        }
+        //return renderSVG function 
+        return generateShape.renderSVG();
     })
+    //take generateShape.renderSVG() and create a new svg file 
     .then((content) =>  writeFile(path, content))
     //if succefully generate a file, log a success message
     .then(()    =>  console.log("Generated logo.svg"))
