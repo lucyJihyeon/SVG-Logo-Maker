@@ -35,23 +35,28 @@ const promptUser = () => {
 
 //Initial functino to call promptUser function 
 const init = ()   =>  {
+    //pathway of the file where the logo.svg will be generated.
     const path = join(__dirname, '..','SVG-Logo-Maker', 'examples', 'logo.svg');
     let generateShape ='';
+    //call the promptUser function 
     promptUser()
     //take the resolved promise and stored it in answers to pass to a certain function
     .then(({text, textColor, shape, shapeColor}) => {
-        const shapeSVG = shape.toLowerCase();
+        //take the user's answer in 'shape' and create a corresponding instance based on the shapes.
+        const shapeSVG = shape
         if (shapeSVG === 'circle') {
-            generateShape = new Circle(answers);
+            generateShape = new Circle(text, textColor, shapeColor);
         }else if (shapeSVG === 'square')    {
-            generateShape = new Square(answers);
+            generateShape = new Square(text, textColor, shapeColor);
         }else if (shapeSVG === 'triangle'){
             generateShape = new Triangle(text, textColor, shapeColor); 
         } else {
             throw new Error("Invalid shape selected.")
         }
+        //return renderSVG function 
         return generateShape.renderSVG();
     })
+    //take generateShape.renderSVG() and create a new svg file 
     .then((content) =>  writeFile(path, content))
     //if succefully generate a file, log a success message
     .then(()    =>  console.log("Generated logo.svg"))
