@@ -11,6 +11,7 @@
     "jest": "^29.7.0"
   },
   "dependencies": {
+    "color-name-list": "^10.19.0",
     "inquirer": "^8.2.4"
   }
 }
