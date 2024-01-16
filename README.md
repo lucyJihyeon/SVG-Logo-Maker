@@ -13,7 +13,6 @@ The SVG Logo Maker is a command-line program that allows users to generate simpl
 - [Contribution](#contribution)
 - [Tests](#tests)
 - [Preview](#preview)
-- [Link](#link)
 - [Contact](#contact)
 
 ## Installation 
@@ -104,7 +103,7 @@ So That I can easily navigate where I enter my input incorrectly that cause any 
 
 
 
-## Test 
+## Tests 
 
 To run tests, run the following command:
 ```
@@ -114,7 +113,17 @@ npm test
 ## Preview 
 
 This is the preview of the application 
-![alt preview](./img/screen)
+
+### generate a logo with no error 
+![alt preview](./img/circle-no%20error.gif)
+### generate a logo with an invlid shape color error
+![alt preview](./img/invalid%20shape%20color.gif)
+### generate a logo with an invalid text color error
+![alt preview](./img/invalid%20text%20color.gif)
+### generate a logo with a text length error
+![alt preview](./img/text%20length%20error.gif)
+### running a jest test
+![alt preview](./img/jest%20test.gif)
 
 ## Contact
 
