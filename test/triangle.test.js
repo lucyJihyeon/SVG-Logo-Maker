@@ -16,11 +16,11 @@ describe("Triangle", () => {
     test("should return the whole content of the svg file including svg tag, text tag, and a circle tag", () => {
       let triangle = new Triagle("SVG", "blue", "yellow");
       expect(triangle.renderSVG()).toEqual(
-`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300">
+`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">
     <polygon points = "150, 18 244, 182 56, 182" fill = "yellow" />
-    <text x="50%" y="50%" text-anchor="middle" font-size="90px" fill="blue">SVG</text>
+    <text x="150" y="125" text-anchor="middle" font-size="60px" fill="blue">SVG</text>
 </svg>`);
-    });      
+    });
   });
   //checks if setColor method in Shape class checks for an error when invalid color is entered for a shape color. 
   describe("setColor", () => {

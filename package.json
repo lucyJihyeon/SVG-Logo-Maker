@@ -2,7 +2,6 @@
   "name": "svg-logo-maker",
   "version": "1.0.0",
   "description": "Comand line tool to generate an svg logo and write it to file",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jest",
