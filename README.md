@@ -95,11 +95,6 @@ So That I can easily navigate where I enter my input incorrectly that cause any 
 - inquirer
 - color-name-list
 
-
-## License
-
-This project is licensed under the None
-
 ## Contribution 
 1. Fork the Repo 
 2. Create a new branch 
