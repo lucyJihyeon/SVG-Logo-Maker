@@ -6,7 +6,7 @@ describe("Shape", () => {
     test("should return svg tag", () => {
       let shape = new Shape("SVG", "white");
       expect(shape.renderSVGTag()).toEqual(
-        '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300">'
+        '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">'
       );
     });
   });
@@ -32,7 +32,7 @@ describe("Shape", () => {
       const result = shape.renderTextTag();
 
       // 
-      expect(result).toEqual(`<text x="50%" y="50%" text-anchor="middle" font-size="90px" fill="black">SVG</text>
+      expect(result).toEqual(`<text x="150" y="125" text-anchor="middle" font-size="60px" fill="black">SVG</text>
 </svg>`);
     });
   });

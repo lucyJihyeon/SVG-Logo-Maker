@@ -7,7 +7,7 @@ describe("Square", () => {
       let square = new Square();
       square.setColor("blue");
       expect(square.renderShape()).toEqual(
-        `<rect x="25" y="25" width = "250" height = "250" fill = "blue" />`
+        `<rect x="25" y="25" width="250" height="150" fill="blue" />`
       );
     });
   });
@@ -16,9 +16,9 @@ describe("Square", () => {
     test("should return the whole content of the svg file including svg tag, text tag, and a circle tag", () => {
       let square = new Square("SVG", "blue", "yellow");
       expect(square.renderSVG()).toEqual(
-`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300">
-    <rect x="25" y="25" width = "250" height = "250" fill = "yellow" />
-    <text x="50%" y="50%" text-anchor="middle" font-size="90px" fill="blue">SVG</text>
+`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">
+    <rect x="25" y="25" width="250" height="150" fill="yellow" />
+    <text x="150" y="125" text-anchor="middle" font-size="60px" fill="blue">SVG</text>
 </svg>`);
     });      
   });

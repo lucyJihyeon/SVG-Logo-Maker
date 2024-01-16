@@ -7,7 +7,7 @@ describe("Circle", () => {
       let circle = new Circle();
       circle.setColor("blue");
       expect(circle.renderShape()).toEqual(
-        `<circle cx = "150" cy="130" r="115" fill = "blue" />`
+        `<circle cx = "150" cy="100" r="80" fill = "blue" />`
       );
     });
   });
@@ -16,9 +16,9 @@ describe("Circle", () => {
     test("should return the whole content of the svg file including svg tag, text tag, and a circle tag", () => {
       let circle = new Circle("SVG", "blue", "yellow");
       expect(circle.renderSVG()).toEqual(
-`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300">
-    <circle cx = "150" cy="130" r="115" fill = "yellow" />
-    <text x="50%" y="50%" text-anchor="middle" font-size="90px" fill="blue">SVG</text>
+`<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">
+    <circle cx = "150" cy="100" r="80" fill = "yellow" />
+    <text x="150" y="125" text-anchor="middle" font-size="60px" fill="blue">SVG</text>
 </svg>`);
     });      
   });
